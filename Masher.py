@@ -70,7 +70,7 @@ PDF2 = ""
 
 root = tk.Tk()
 root.title('PDF Masher!')
-version = "1.0"
+version = "1.1"
 InfoFrame = tk.Frame(width=75, height=250)
 InfoFrame.grid(row=0, columnspan=2)
 explainLabel = tk.Label(InfoFrame, text=f"Load 2 PDF's using the buttons below, press the Mash! button in order"
