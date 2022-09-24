@@ -6,7 +6,7 @@ from tkinter.filedialog import asksaveasfilename, askopenfilename
 def openFile():
     global PDF1, oneText, oneLabel
     PDF1 = askopenfilename()
-    if PDF1[-4:] == ".pdf" or PDF1[-4:] == ".PDF":
+    if PDF1[-4:].upper() == ".PDF":
         oneText.set(PDF1)
         oneLabel['bg'] = "Green"
     else:
@@ -17,7 +17,7 @@ def openFile():
 def openFile2():
     global PDF2, twoText, twoLabel
     PDF2 = askopenfilename()
-    if PDF2[-4:] == ".pdf" or PDF2[-4:] == ".PDF":
+    if PDF2[-4:].upper() == ".PDF":
         twoText.set(PDF2)
         twoLabel['bg'] = "Green"
     else:
@@ -29,17 +29,11 @@ def PDFCheck():
     global oneText, twoText
     one = oneText.get()
     two = twoText.get()
-    if one[-4:] == ".PDF":
-        if two[-4:] == ".PDF":
+    if one[-4:].upper() == ".PDF":
+        if two[-4:].upper() == ".PDF":
             return True
-        elif two[-4:] == ".pdf":
-            return True
-    elif one[-4:] == ".pdf":
-        if two[-4:] == ".PDF":
-            return True
-        elif two[-4:] == ".pdf":
-            return True
-    return False
+    else:
+        return False
 
 
 def mash():
@@ -67,6 +61,7 @@ def mash():
             mashText.set("Something went wrong :(")
     else:
         mashLabel['bg'] = "Red"
+        mashText.set('Select 2 PDF files')
 
 
 
