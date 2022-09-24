@@ -1,7 +1,6 @@
 from PyPDF2 import PdfMerger
 import tkinter as tk
-from tkinter.filedialog import asksaveasfilename
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import asksaveasfilename, askopenfilename
 
 
 def openFile():
@@ -37,10 +36,8 @@ def PDFCheck():
             return True
     elif one[-4:] == ".pdf":
         if two[-4:] == ".PDF":
-            print("true " + two[-4:])
             return True
         elif two[-4:] == ".pdf":
-            print("true " + two[-4:])
             return True
     return False
 
@@ -48,13 +45,13 @@ def PDFCheck():
 def mash():
     global mashText, mashLabel, oneText, twoText
     if PDFCheck():
-        mashLabel['bg'] = "Green"
         types = [('PDF', "*.pdf")]
         filename = asksaveasfilename(filetypes=types, defaultextension=str(types))
         mashText.set(filename)
         merger = PdfMerger()
         try:
             merger.append(PDF1)
+            mashLabel['bg'] = "Green"
         except:
             mashLabel["bg"] = "Red"
             mashText.set("Something went wrong :(")
