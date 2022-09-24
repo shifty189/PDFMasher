@@ -1,6 +1,5 @@
 from PyPDF2 import PdfMerger
 import tkinter as tk
-# from tkinter import filedialog
 from tkinter.filedialog import asksaveasfilename
 from tkinter.filedialog import askopenfilename
 
@@ -66,14 +65,12 @@ def mash():
             mashText.set("You must slect 2 PDF files")
         try:
             merger.write(filename)
-            # mashLabel["bg"] = "Green"
         except:
             mashLabel["bg"] = "Red"
             mashText.set("Something went wrong :(")
     else:
         mashLabel['bg'] = "Red"
-    # if mashText.get() != "Something went wrong :(" and mashText.get() != "You must slect 2 PDF files":
-    #     mashLabel['bg'] = "Green"
+
 
 
 PDF1 = ""
